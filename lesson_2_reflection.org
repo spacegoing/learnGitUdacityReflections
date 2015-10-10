@@ -1,0 +1,37 @@
+* Git Commands
+  + git init
+    This will init a git directory with 0 commits.
+  + git status
+    This will display all files changed since last commit. And untracked files
+    and so on.
+  + git add
+    Add files into the staging area.
+  + git reset HEAD -- <file> 
+    HEAD means most recent commit.  -- tells git the
+    following is not a command but a file name. see
+    http://stackoverflow.com/questions/1505948/how-do-i-remove-a-single-file-from-the-staging-area-of-git-but-not-remove-it-fro
+  + git commit: 
+    As soon as you run git commit an editor will appear and allow
+    you to write a commit message. If you get an error message, you should try
+    revisiting the instructions in Lesson 1 and make sure your text editor is
+    set up properly. You can also specify a commit message via the command line
+    by running $ git commit -m "Commit message" $ instead of just git commit. It's
+    still a good idea to get an editor set up, since this will make it easier to
+    write long commit messages that fully describe the change.
+    
+    Git Commit Message Style:
+    http://udacity.github.io/git-styleguide/
+
+
+* Git Concepts
+  + Working directory, Staging area, Repository
+    + Working directory: the pwd, contains all files in this folder
+    + Staging area: use git add command to add files to this area. 
+      Each commit command will add all those files in Repository
+    + Repository: Just the Git Repository
+Qustions: 
+
+Add logical changes to staging area? only 1 file? how about sperate
+logical files? add different files to staging area many times? Isn't all files
+in one directory are saved one version in one commit? What is in the directory?
+the files in working directory or files in staging area?
