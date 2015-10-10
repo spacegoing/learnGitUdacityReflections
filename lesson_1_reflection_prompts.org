@@ -1,0 +1,47 @@
+How often to commit?
+
+    Make one commit per logical change. Each change is logically separated.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit?
+
+    If one file is commited,  Git will save all files in the same repository.
+    git log --stat
+    This command can see which files are changed. How many lines are added or
+    removed.
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    U can use git checkout commitID to revert to that ID. This will
+    revert all files in the directory to the time the commit was made.
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    Fill in your answer here
+
+* Useful Git Commands:
+
+  + Git Clone:
+       	   git clone url: will clone the entire directory to local disk.
+  + git config: Change configurations
+    -- global: apply to all
+    color.ui auto: make diff command's output colorful.
+  + checkout: checkout a file means reset all file in the directory to
+    how they were at the time that commit was made.
+    the input is just the commit id u want to revert to
+
+* Git Erros and Warnings Messages:
+
+  + Should not be doing an octopus:
+  Octopus is a strategy Git uses to combine many different versions of
+  code together. This message can appear if you try to use this strategy
+  in an inappropriate situation.
+  
+  + You are in 'detached HEAD' state 
+  HEAD is what Git calls the commit you are currently on. You can
+  “detach” the HEAD by switching to a previous commit, which we’ll see
+  in the next video. Despite what it sounds like, it’s actually not a
+  bad thing to detach the HEAD. Git just warns you so that you’ll
+  realize you’re doing it.
+  

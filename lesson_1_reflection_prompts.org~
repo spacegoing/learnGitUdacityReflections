@@ -1,0 +1,29 @@
+How often to commit?
+
+    Make one commit per logical change. Each change is logically separated.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit?
+
+    If one file is commited,  Git will save all files in the same repository.
+    git log --stat
+    This command can see which files are changed. How many lines are added or
+    removed.
+
+Useful Git Commands:
+
+       Git Clone:
+       	   git clone url: will clone the entire directory to local disk.
+
+How can you use the commands git log and git diff to view the history of files?
+
+    Fill in your answer here
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    Fill in your answer here
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    Fill in your answer here
