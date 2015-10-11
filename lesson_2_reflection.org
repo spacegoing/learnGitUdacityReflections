@@ -1,3 +1,10 @@
+Qustions: 
+
+Add logical changes to staging area? only 1 file? how about sperate
+logical files? add different files to staging area many times? Isn't all files
+in one directory are saved one version in one commit? What is in the directory?
+the files in working directory or files in staging area?
+
 * Git Commands
   + git init
     This will init a git directory with 0 commits.
@@ -21,7 +28,87 @@
     
     Git Commit Message Style:
     http://udacity.github.io/git-styleguide/
+  + git diff:
+    + git diff <with no arguments>
+      This will compare all files' changes between working directory and staging area.
 
+    + git diff --staged
+      This will compare between staging area and repository
+
+    + git diff commitID1 commitID2
+      Compare two commits in repository
+
+  + git show <commitID>:
+     compare a commit to its parent. This is useful after
+    merge. Since all commits are merged and re-sorted by time, u
+    can't tell which commit is the parent. Then you can simply use
+    $git show commitID$ to see commitID's difference with its parent.
+
+  + git branch
+
+    + without arguments: show all branches labels and current branch
+
+    + git branch <new label> create a new branch.
+      After creating a new branch, you need to $git add$  changed
+      files into staging area then $git commit$.
+
+    + git branch -d labelName
+      Only use this command after merge!!!
+      This will delete the branch name labelName.
+
+  + git log --graph --oneline <branch label 1> <branch label 2> etc
+    see the visual representation of the commit history
+
+  + git checkout -b new_branch_name
+    If we checkout to a previous commit and made some changes, we are
+    not on the current branch but Head Detached state. Since we made
+    some changes, we can create a new branch to save those changes, or
+    just checkout to another commit and those changes will be discarded.
+
+  + git merge <branch name A B C D...>
+    always merges all the specified branches into the currently
+    checked out branch, creating a new commit for that branch. The
+    order of the arguments doesn't matter.
+    + Merge Conflict:
+      + Restore your files to their state before you started the merge
+        by running 
+	$git merge --abort$
+
+      + Solve Conflicts:
+	Suppose we run:
+	git checkout A
+	git merge B
+	When run into conflict, Git will annotate different sections.
+	
+	"<<<<<<< HEAD"
+	Start of the confilict.
+	HEAD indicates this is the part that branch A modified.
+	U can always find by searching this by a bunch of "<"
+	
+	"|||||||||||||||| merged common ancestors"
+	some code that both branches modified. Those code are the
+        ancestor of the modified common area.
+	
+	"======="
+	some code that branch B modified
+	">>>>>>>> B"
+
+      + Merge Workflow when have conflicts:
+	+ git checkout A
+
+	+ git merge B
+	  Under this step, it shows conflict messages and confict
+          files.
+
+	+ emacs conflictFiles
+	  Follow instructions in part "Solve Conflicts" in this
+          note. Solve all conflicts and save the file.
+
+	+ (git status) git add conflictFiles
+
+	+ git commit
+
+  + 
 
 * Git Concepts
   + Working directory, Staging area, Repository
@@ -29,9 +116,46 @@
     + Staging area: use git add command to add files to this area. 
       Each commit command will add all those files in Repository
     + Repository: Just the Git Repository
-Qustions: 
-
-Add logical changes to staging area? only 1 file? how about sperate
-logical files? add different files to staging area many times? Isn't all files
-in one directory are saved one version in one commit? What is in the directory?
-the files in working directory or files in staging area?
+  + Commit Work flow
+    + git add (+ git status + git reset HEAD --<file>)
+    + git commit
+** Branches
+    In normal way, commit history has a linear structure. Each commit
+    builds upon previous version.
+    Branches will branch the history into multiple versions. Each
+    branch has a label. Then checkout between branches.
+    The default branch is called $Master$. When you checkout to
+    previous commit ID, u r in head detached mode, which means u r
+    curretly not in the $Master$ branch. 
+    However, if u checkout a branch then make a commit, the branch
+    label auotomatically updates to the commit. 
+    It is possible a file has multiple branches labels. But making a
+    new commit will only update the branch that u have checked out.
+    + Tip of the branch
+      The current last commit of the branch.
+    + When to use branch:
+      Anytime do another piece of work. (Experimental Features...)
+      Master branch is the production quality branch that never break.
+    + Branch and Head Detached Mode:
+      If we checkout a previous commit, we will in the HeadDetached
+      Mode namely we are not on the current branch. If we made changes
+      but didn't commit, and then checkout to the most recent commit,
+      then all changes will lose. However, we can make a new branch
+      for this. There are too ways:
+      + git checkout -b new_branch_name
+      + first: git branch new_branch_name Second: git checkout on that
+        new branch
+** Merge Branches
+   + Workflow:
+     + Start : Branch A, Branch B
+     + Checkout Branch B
+     + git merge A
+       Merge A into B (Compare A and B to the most recent common
+       commits then decide which part will be saved, which will be
+       discarded) (If u merge A C, then both A and C will be merged
+       into B since u checked out B)
+     + All commits in A will be also included in B. Will be sorted
+       according to created time.
+     + git branch -d A
+       The branche "LABLE" A will be deleted. !Attention, if delete A
+       before A merge into B, all Commits in A will be Unreachable. 
