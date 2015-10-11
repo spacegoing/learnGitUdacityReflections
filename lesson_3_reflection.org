@@ -1,1 +1,23 @@
-
+* Push
+** Workflow
+   + git remote
+     This is to see all remos u have currently
+   + git remote add
+     git remote add origin
+     https://github.com/spacegoing/learnGitUdacityReflections.git
+     This is to add this url to a local repository "origin" refers to
+     a remote repository "learnGitUdacityReflections"
+   + git remote -v
+     Can see push and pull urls using this command
+   + git push origin master
+     This command takes two arguments: remote, branchName.
+** Concepts
+   + remos
+     Remote repositories. A remote in local repository is basically a
+     reference to another repository. 
+     
+* Pull
+** Workflow
+   + git pull <remote labels> <branch name>
+     
+     
