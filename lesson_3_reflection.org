@@ -21,3 +21,43 @@
    + git pull <remote labels> <branch name>
      
      
+
+* Merging Conflicts
+** Workflow
+   + git fetch origin
+   + git merge
+** Concepts
+   git pull == git fetch + git merge
+   Anytime after u pull/ push/ clone etc from github, since u use
+   "origin" refer to the remote repository, a new branch called
+   "origin/master" will be created on local.
+   If both local and remote repository are modified without sync, then
+   directly $pull$ remote or $push$ local will run into conflicts.
+   The solution is to use
+   $git fetch origin$ + $git merge$
+   First u use $fetch$, this will only sync "origin/master" on local
+   and the remote repository. Then u can merge "origin/master" and
+   "master" branches together. 
+
+
+* Github Operations
+  + Pull Request
+    https://youtu.be/2Z1tK3Q7Y6I
+
+* Github Concepts
+  + Fork
+    Just clone but happens on Github servers.
+  + Collaborators: Settings->Collaborators
+  + Fast Forward Merge
+    Suppose:
+    git checkout A
+    git merge B
+    If all commits in branch A are reachable in branch B (namely A is
+    an ancestor of B), then a merge operation will simply move the
+    branch label A to the tip of branch label B, without generating a
+    new commit. This is called Fast Forward Merge.
+  + Pull Request (Actually Merge Request)
+    Means u want ur collaborators to pull ur commits and merge them
+    into the master branch. So they can review ur commits and give
+    feedback to u. 
+    
